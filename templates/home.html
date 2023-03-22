@@ -1,0 +1,54 @@
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    
+    <link rel='stylesheet' href="{{ url_for('static',filename='css/app.css')}}">
+
+
+    <meta charset='UTF-8'>
+    <meta http-equiv="X-UA_Compactible" content="IE=edge">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <title>Regular Expression Webapp</title>
+  </head>
+
+
+
+  
+  <body>
+
+
+    <h1 style="background-color: black; color:red;font-family: Arial, sans-serif;padding:50px;">Search for pattern </h1>
+
+    <form method="POST">
+      <label for='regex'><h4 style='color:red'>Regular Expressions||Pattern </h4></label>
+      <p style='color:rgb(173, 134, 134)'>Enter the pattern you want to search from the text</p></br>
+      <input type='text' name='regex'>
+      </br></br>
+      <label for='text' ><h4 style='color:red'>Test String</h4> </label>
+      <p style='color:rgb(173, 134, 134)'>Enter the text</p></br>
+      <input type='text' name='text'>
+      </br></br></br>
+      <input type='submit' value="find" >
+      <input type="reset" value="refresh"></br></br>
+   
+      
+    </form>
+    {% if matches %}
+    <ul> 
+      {% for match in matches %}
+      <li>{{match}}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class='moto'> 
+    <p style='color:blue;background:yellow'> Sorry No matches found , Please try again</p>
+    </div>
+    {%  endif %}
+
+    
+  </body>
+</html>
